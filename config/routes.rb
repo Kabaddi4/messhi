@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   #only (生成するルーティングを限定する。resourcesならもっと作って)
   resources :post_images, only: [:new, :create, :index, :show, :destroy] do
-    resources :post_comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy] #いいね機能
+
+    resources :post_comments, only: [:create, :destroy] #コメント機能
   end
 
 end
