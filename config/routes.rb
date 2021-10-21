@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   # gem 'devise'の際に自動追加
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -10,5 +11,6 @@ Rails.application.routes.draw do
 
     resources :post_comments, only: [:create, :destroy] #コメント機能
   end
+  resources :users, only: [:show, :edit, :update]
 
 end
